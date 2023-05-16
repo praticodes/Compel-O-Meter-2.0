@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compel-O-Meter</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+</head>
+<body>
+    <div id="line"></div>
+    <div class="header">
+        <h1>Compel-O-Meter</h1>
+        <h2>Let's be critical of the content we consume.</h2>
+        <button class="scroll-button" onclick="redirectToLaunch()">Launch</button>
+    </div>
+    <script>
+        function redirectToLaunch() {
+            window.location.href = "{{ url_for('launch') }}";
+        }
+    </script>
+</body>
+</html>
