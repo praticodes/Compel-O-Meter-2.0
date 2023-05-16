@@ -1,0 +1,12 @@
+# Testing and code checking
+hypothesis==6.70.2
+pytest~=7.2.1
+python-ta==2.4.2
+
+# Natural language processing
+spacy~=3.5.1
+nltk~=3.8.1
+
+# other programs
+snscrape~=0.6.2.20230320
+pandas~=1.5.3
