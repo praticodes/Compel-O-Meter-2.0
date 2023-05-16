@@ -291,7 +291,7 @@ def ethics_warning(text: str) -> str:
         return "WARNING: This post may express dangerous sentiments towards marginalized groups. Think critically " \
                "about this post and remember to show respect to other people, regardless of your differences."
     else:
-        return "No dangerous sentiments towards marginalized groups was detected in this text. Note that it is still " \
+        return "No dangerous sentiments towards marginalized groups were detected in this text. Note that it is still " \
                "important to think critically about the sentiments expressed."
 
 
