@@ -1,0 +1,231 @@
+/* GENERAL */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f8f8f8;
+  color: #333333;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1 {
+  color: #37123C;
+  font-size: 35vh;
+  margin-bottom: 10px;
+  font-family: 'Karla', sans-serif;
+}
+
+h2 {
+  font-size: 18vh;
+  margin-bottom: 2vh;
+  font-family: 'Karla', sans-serif;
+}
+
+p {
+  text-align: center;
+  font-size: 5vh;
+  padding: 3vh;
+}
+
+/* BLOCKS */
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 98vh;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.scroll-button {
+    font-family: 'Inconsolata', monospace;
+    font-size: 2.5vh;
+    width: 20vh;
+    height: 7.5vh;
+    cursor: pointer;
+    border-radius: 3.5vh;
+    background-color: #C4B7CB;
+    color: white;
+}
+
+.scroll-button::hover {
+    background-color: #706C61;
+    color: white;
+}
+
+
+/* SPECIFIC ELEMENTS */
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-family: 'Karla', sans-serif;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-family: 'Inconsolata', monospace;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+  padding: 5vh;
+  font-family: 'Inconsolata', monospace;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+textarea {
+  width: 85vh;
+  height: 200px;
+  max-width: 700px;
+  margin-bottom: 30px;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  resize: none;
+  font-family: 'Inconsolata', monospace;
+}
+
+input[type="submit"] {
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  background-color: #37123C;
+  color: white;
+  border: none;
+  border-radius: 2vh;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #706C61;
+  color: white;
+}
+
+#Heading {
+    padding: 5vh;
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Warnings, #Glance, #Descriptions {
+  height: 98vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* NAVIGATION BAR */
+
+ul.navbar {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #706C61;
+      color: white;
+      display: flex; /* Use flexbox layout */
+      justify-content: space-between; /* Spread items evenly */
+    }
+
+    ul.navbar li {
+      display: inline;
+      padding: 2vh 5vh;
+    }
+
+    ul.navbar li a {
+        color: white;;
+        font-weight: bold;
+        text-decoration: none;
+        font-family: 'Inconsolata' monospace;
+        font-size: 2.5vh;
+    }
+
+/* DIVIDER LINES */
+
+    #line {
+        width: 100%;
+        height: 2vh;
+        background-color: #C4B7CB;
+    }
+
+    #line2 {
+        width: 100%;
+        height: 2vh;
+        background-color: #706C61;
+    }
+
+    #line3 {
+        width: 100%;
+        height: 2vh;
+        background-color: #37123C;
+    }
+
+/* SCORES */
+
+ul.scores {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex; /* Use flexbox layout */
+      justify-content: space-between; /* Spread items evenly */
+    }
+
+    ul.scores li {
+      display: inline;
+      padding: 2vh 5vh;
+      font-family: 'Inconsolata' monospace;
+      font-size: 2.5vh;
+    }
+
+ul.details {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex; /* Use flexbox layout */
+      justify-content: space-between; /* Spread items evenly */
+    }
+
+    ul.details li {
+      padding: 2vh 5vh;
+      font-family: 'Inconsolata' monospace;
+      font-size: 2.5vh;
+    }
+
+/* FONT IMPORTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Karla:wght@300&display=swap');
+
+/* ERROR MESSAGE */
+.error {
+  font-family:'Inconsolata' monospace;
+  font-weight: bold;
+}
