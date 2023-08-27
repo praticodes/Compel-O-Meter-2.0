@@ -5,6 +5,24 @@
     <link rel="stylesheet" type="text/css" href="/static/style.css" />
 </head>
 <body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        const loadingOverlay = document.getElementById("loadingOverlay");
+
+        form.addEventListener("submit", function () {
+            loadingOverlay.style.display = "block"; // Show loading overlay
+        });
+
+        // Hide loading overlay when results page is loaded
+        window.addEventListener("load", function () {
+            loadingOverlay.style.display = "none"; // Hide loading overlay
+        });
+    });
+    </script>
     <div id="launched"></div>
     <div id="line"></div>
     <div id="line2"></div>
