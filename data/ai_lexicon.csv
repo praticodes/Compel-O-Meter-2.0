@@ -122,7 +122,7 @@ child,-1.0,1
 boy,0.0,1
 be,0.0,1
 call,0.0,1
-hansel,0.0,1
+hansel,-1.0,2.0
 girl,0.0,1
 gretel,0.0,1
 have,-1.0,1
