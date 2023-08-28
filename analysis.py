@@ -93,9 +93,12 @@ def create_lexicon_ai(text: str) -> dict:
     return lexicon
 
 
-def update_lexicon_data_ai(text: str, pathos: float) -> None:
+def update_lexicon_data_ai(text: str, pathos: float, negative_sentiment: bool) -> None:
     """ This function will update the lexicon based on the missing words, and it's pathos score"""
     absent = find_absents(text)
+
+    if negative_sentiment:
+        pathos = 0 - pathos
 
     for word in absent:
         if not present_in_file(word, 'data/ai_lexicon.csv'):
@@ -205,7 +208,7 @@ def get_pathos(text: str) -> tuple[float | int, bool]:
 
 
 def get_pathos_ai(text: str) -> (float, str):
-    """Returns the pathos score for the given text alongside its direction (a '+' or '-' or 'undetermined').
+    """Returns the pathos score for the given text alongside whether the overall sentiment is negative.
 
     The pathos score for a given text is the average of the pathos scores of all the roots of its
     constituent sentences.
@@ -390,7 +393,9 @@ def get_compellingness_ai(text: str) -> tuple[float | int, float | int, float | 
 
     Uses AI
     """
-    pathos_score = get_pathos_ai(text)[0]
+    pathos = get_pathos_ai(text)
+    pathos_score = pathos[0]
+    negative = pathos[1]
     logos_score = get_logos(text)
     initial_compellingness = max(logos_score, pathos_score) + 0.5 * min(logos_score, pathos_score)
     if initial_compellingness > 2.0:
@@ -398,7 +403,7 @@ def get_compellingness_ai(text: str) -> tuple[float | int, float | int, float | 
     else:
         compellingness = initial_compellingness
 
-    update_lexicon_data_ai(text, pathos_score)
+    update_lexicon_data_ai(text, pathos_score, negative)
     return compellingness, pathos_score, logos_score, get_pathos(text)[1]
 
 
@@ -458,11 +463,3 @@ def compellingness_description_ai(text: str) -> tuple[str, str, str, str, str, s
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
-
-    import python_ta
-
-    python_ta.check_all(config={
-        'max-line-length': 120,
-        'disable': ['forbidden-import'],
-        'allowed-io': ['present_in_file', 'create_lexicon_ai', 'update_lexicon_data_ai']
-    })

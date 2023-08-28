@@ -227,7 +227,8 @@ def count_logos_numerals(text: str) -> list[int]:
 
 
 def handle_multiline(text: str) -> str:
-    """Return a new text where all lines and merged into one."""
+    """Return a new text where all lines and merged into one.
+    """
     return text.replace('\n', ' ')
 
 
