@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb34b214-0e73-4953-84d6-2848aab1eab7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/texts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/texts.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ai_lexicon.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ai_lexicon.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +38,7 @@
       <recent name="C:\Users\Admin\Desktop\Compel-O-Meter-2.0\" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.train">
+  <component name="RunManager" selected="Python.analysis">
     <configuration name="analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Compel-O-Meter-2.0" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,10 +116,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.train" />
         <item itemvalue="Python.analysis" />
         <item itemvalue="Python.process" />
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.train" />
       </list>
     </recent_temporary>
   </component>
