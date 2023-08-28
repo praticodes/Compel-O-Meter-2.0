@@ -30,7 +30,10 @@
         <p>To get started, enter the text you wish to analyze below!</p>
         <form action="{{ url_for('submit') }}" method="POST">
             <textarea id="text" name="text" maxlength="280" placeholder="Enter the text you wish to analyze :)" required></textarea>
-            <p class="char">Character Limit: 280</p>
+           <ul class="chars">
+               <li>Character Limit: 280</li>
+               <li>Characters used: <span id="count">0</span></li>
+           </ul>
             <input type="submit" value="Analyze!">
         </form>
     </div>
@@ -38,5 +41,13 @@
     <div id="line"></div>
     <div id="line3"></div>
     <div id="line2"></div>
+<script>
+    const textbox = document.getElementById('text')
+    const counter = document.getElementById('count')
+    function updateCounter(){
+       counter.textContent = textbox.value.length
+    }
+    textbox.oninput = updateCounter;
+</script>
 </body>
 </html>
