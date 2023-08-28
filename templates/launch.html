@@ -29,7 +29,8 @@
     <div class="container">
         <p>To get started, enter the text you wish to analyze below!</p>
         <form action="{{ url_for('submit') }}" method="POST">
-            <textarea id="text" name="text" placeholder="Enter the text you wish to analyze :)" required></textarea>
+            <textarea id="text" name="text" maxlength="280" placeholder="Enter the text you wish to analyze :)" required></textarea>
+            <p class="char">Character Limit: 280</p>
             <input type="submit" value="Analyze!">
         </form>
     </div>

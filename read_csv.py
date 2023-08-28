@@ -70,6 +70,20 @@ def reasoning_words_list(csv_file: str) -> list:
     return reasoning_words
 
 
+def ai_lexicon_words_dict(csv_file: str) -> dict[str, float]:
+    """
+    Takes in a csv file (ai_lexicon in our case) and returns a dictionary 
+    with each word in the lexicon along with its sentiment score.
+    """
+    ai_words = {}
+    with open(csv_file) as file:
+        reader = csv.reader(file)
+        for row in reader:
+            ai_words[row[0]] = float(row[1]) / float(row[2])
+    return ai_words
+
+
 if __name__ == '__main__':
     import doctest
+
     doctest.testmod(verbose=True)
