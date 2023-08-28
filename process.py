@@ -50,7 +50,7 @@ def lemmatize(word: str) -> str:
     'be'
     """
     # download 'averaged_perceptron_tagger' if not already present in system.
-    nltk.download('averaged_perceptron_tagger')
+    # nltk.download('averaged_perceptron_tagger')
     # Initialize the WordNetLemmatizer function.
     lemmatizer = WordNetLemmatizer()
 
@@ -118,7 +118,7 @@ def is_superlative(word: str) -> bool:
     True
     """
 
-    nltk.download('averaged_perceptron_tagger')
+    # nltk.download('averaged_perceptron_tagger')
     pos_tag = nltk.pos_tag([word])[0][1]
     exceptions = ['happiest', 'saddest']
     if ('JJ' in pos_tag and 'st' in word) or word in exceptions:
@@ -227,7 +227,8 @@ def count_logos_numerals(text: str) -> list[int]:
 
 
 def handle_multiline(text: str) -> str:
-    """Return a new text where all lines and merged into one."""
+    """Return a new text where all lines and merged into one.
+    """
     return text.replace('\n', ' ')
 
 
