@@ -21,7 +21,7 @@ import process
 def create_lexicon() -> dict:
     """Create a sentiment analysis dictionary. """
     lexicon = {}
-    # nltk.download('opinion_lexicon')
+    nltk.download('opinion_lexicon')
     positive_words = set(nltk.corpus.opinion_lexicon.positive())
     negative_words = set(nltk.corpus.opinion_lexicon.negative())
     for word in positive_words:
