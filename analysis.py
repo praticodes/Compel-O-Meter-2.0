@@ -220,7 +220,7 @@ def get_pathos_ai(text: str) -> (float, bool):
     trees = parse_tree.trees_from_sentences(sentences)
     for tree in trees:
         tree.final_pathos_of_tree_ai(text)
-    pathos = [parsetree.get_pathos() for parsetree in trees]
+    pathos = [tree.get_pathos() for tree in trees]
     pathos_score = sum([result[0] for result in pathos]) / max(len(trees), 1)
     negative_sentiment_present = any(result[1] for result in pathos)
     return pathos_score, negative_sentiment_present
@@ -296,7 +296,7 @@ def ethics_warning(text: str) -> str:
         return "WARNING: This post may express dangerous sentiments towards marginalized groups. Think critically " \
                "about this post and remember to show respect to other people, regardless of your differences."
     else:
-        return "No dangerous sentiments towards marginalized groups was detected in this text. Note that it is still " \
+        return "No dangerous sentiments towards marginalized groups were detected in this text. Note that it is still " \
                "important to think critically about the sentiments expressed."
 
 

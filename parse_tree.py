@@ -331,9 +331,10 @@ class ParseTree:
         if self.sentiment < 0:
             negation_present = True
         for subtree in self._subtrees:
-            sum_so_far += subtree.get_pathos_sum()[0]
-            negation_present = negation_present or subtree.get_pathos_sum()[1]
-        return (sum_so_far, negation_present)
+            recursive_value = subtree.get_pathos_sum()
+            sum_so_far += recursive_value[0]
+            negation_present = negation_present or recursive_value[1]
+        return sum_so_far, negation_present
 
     def count_sentiment_bearers(self) -> int:
         """ Count the number of nodes in this tree which has a sentiment that is not equal to 0.
@@ -358,7 +359,8 @@ class ParseTree:
         >>> tree[0].get_pathos()
         (1.0, True)
         """
-        return self.get_pathos_sum()[0] / max(self.count_sentiment_bearers(), 1), self.get_pathos_sum()[1]
+        pathos_sum = self.get_pathos_sum()
+        return pathos_sum[0] / max(self.count_sentiment_bearers(), 1), pathos_sum[1]
 
 
 #######################################################################################
