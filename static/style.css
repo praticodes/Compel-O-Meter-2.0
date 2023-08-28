@@ -92,12 +92,7 @@ p {
   font-family: 'Inconsolata', monospace;
 }
 
-.char{
- margin-left: 420px;
- padding-top: 0px;
- font-size: 15px;
- font-family: 'Inconsolata', monospace;
-}
+
 
 form {
   display: flex;
@@ -117,6 +112,21 @@ textarea {
   resize: none;
   font-family: 'Inconsolata', monospace;
 }
+
+ul.chars {
+      list-style-type: none;
+      margin: 0;
+      padding-bottom: 10px;
+      display: flex; /* Use flexbox layout */
+      justify-content: space-between; /* Spread items evenly */
+    }
+
+    ul.chars li {
+      display: inline;
+      padding: 2vh 5vh;
+      font-family: 'Inconsolata' monospace;
+      font-size: 2.5vh;
+    }
 
 input[type="submit"] {
   padding: 10px 30px;
