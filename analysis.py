@@ -15,12 +15,13 @@ import nltk
 import parse_tree
 import process
 import read_csv
+import process
 
 
 def create_lexicon() -> dict:
     """Create a sentiment analysis dictionary. """
     lexicon = {}
-    nltk.download('opinion_lexicon')
+    # nltk.download('opinion_lexicon')
     positive_words = set(nltk.corpus.opinion_lexicon.positive())
     negative_words = set(nltk.corpus.opinion_lexicon.negative())
     for word in positive_words:
@@ -104,12 +105,14 @@ def update_lexicon_data_ai(text: str, pathos: float, negative_sentiment: bool) -
         if not present_in_file(word, 'data/ai_lexicon.csv'):
             with open('data/ai_lexicon.csv', 'a', newline='') as file:
                 writer = csv.writer(file)
+                word = process.lemmatize(word)
                 writer.writerow([word, pathos, 1])  # word, sentiment_count, word_count
         else:
             with open('data/ai_lexicon.csv', 'r', newline='') as file:
                 reader = csv.reader(file)
                 rows = []
                 for row in reader:
+                    word = process.lemmatize(word)
                     if word in row:
                         rows.append([word, str((float(row[1]) + pathos)),
                                      str(float(row[2]) + 1)])
