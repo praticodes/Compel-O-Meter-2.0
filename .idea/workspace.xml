@@ -60,9 +60,6 @@
       <module name="Compel-O-Meter-2.0" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -116,8 +113,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.analysis" />
-        <item itemvalue="Python.process" />
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.process" />
         <item itemvalue="Python.train" />
       </list>
     </recent_temporary>

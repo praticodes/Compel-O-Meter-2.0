@@ -55,12 +55,11 @@ def present_in_file(word: str, csv_file: str) -> bool:
     return False
 
 
-def find_absents(text: str) -> list[str]:
-    """Returns a set of all the words in a text that are not already there in the lexicon. """
+def find_absents(text: str, old_lexicon: dict) -> list[str]:
+    """Returns a set of all the words in a text that are not already there in the lexicon.
+    """
     tokens = nltk.word_tokenize(text)
     tagged = nltk.pos_tag(tokens)
-
-    old_lexicon = create_lexicon()
 
     absent = []
 
@@ -71,16 +70,16 @@ def find_absents(text: str) -> list[str]:
     return absent
 
 
-def create_lexicon_ai(text: str) -> dict:
+def create_lexicon_ai(text: str, old_lexicon: dict) -> dict:
     """Return a sentiment analysis dictionary.
 
     If a word in the text is a noun or adjective or adverb and is not in the dictionary, add it
     to the ai_lexicon.csv file.
     """
-    absent = find_absents(text)
+    absent = find_absents(text, old_lexicon)
 
     if not absent:
-        return create_lexicon()
+        return old_lexicon
     else:
         lexicon = {}
         with open('data/ai_lexicon.csv') as file:
@@ -94,9 +93,9 @@ def create_lexicon_ai(text: str) -> dict:
     return lexicon
 
 
-def update_lexicon_data_ai(text: str, pathos: float, negative_sentiment: bool) -> None:
+def update_lexicon_data_ai(text: str, pathos: float, negative_sentiment: bool, old_lexicon: dict) -> None:
     """ This function will update the lexicon based on the missing words, and it's pathos score"""
-    absent = find_absents(text)
+    absent = find_absents(text, old_lexicon)
 
     for word in absent:
         if not present_in_file(word, 'data/ai_lexicon.csv'):
@@ -138,12 +137,13 @@ def initial_pathos_to_tuple(node: tuple) -> int:
     else:
         return 0
 
+
 def initial_pathos_to_tuple_ai(node: tuple, text: str) -> Union[int, float]:
     """ Return the sentiment (pathos) scores of the given node
 
     Uses an AI lexicon.
     """
-    lexicon = create_lexicon_ai(text)
+    lexicon = create_lexicon_ai(text, old_lexicon=create_lexicon())
     if node[0] in lexicon:
         return lexicon[node[0]]
     else:
@@ -189,6 +189,7 @@ def get_logos(text: str) -> Union[float, int]:
         return min(0.5 + count, 1.0)
     else:
         return 0.0
+
 
 def get_pathos(text: str) -> tuple[Union[float, int], bool]:
     """Return the pathos score for the given text alongside its direction.
@@ -405,7 +406,7 @@ def get_compellingness_ai(text: str) -> tuple[Union[float, int], Union[float, in
     else:
         compellingness = initial_compellingness
 
-    update_lexicon_data_ai(text, pathos_score, negative_sentiment)
+    update_lexicon_data_ai(text, pathos_score, negative_sentiment, create_lexicon())
     return compellingness, pathos_score, logos_score, negative_sentiment
 
 
@@ -464,4 +465,5 @@ def compellingness_description_ai(text: str) -> tuple[str, str, str, str, str, s
 
 if __name__ == '__main__':
     import doctest
+
     doctest.testmod()
