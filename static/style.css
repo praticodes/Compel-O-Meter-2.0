@@ -33,6 +33,7 @@ p {
   padding: 3vh;
 }
 
+
 /* BLOCKS */
 
 .header {
@@ -91,6 +92,13 @@ p {
   font-family: 'Inconsolata', monospace;
 }
 
+.char{
+ margin-left: 420px;
+ padding-top: 0px;
+ font-size: 15px;
+ font-family: 'Inconsolata', monospace;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -101,7 +109,7 @@ textarea {
   width: 85vh;
   height: 200px;
   max-width: 700px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   padding: 10px;
   font-size: 1.2rem;
   border: 2px solid #333333;
