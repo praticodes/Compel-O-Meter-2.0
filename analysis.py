@@ -219,8 +219,9 @@ def get_pathos_ai(text: str) -> (float, bool):
     trees = parse_tree.trees_from_sentences(sentences)
     for tree in trees:
         tree.final_pathos_of_tree_ai(text)
-    pathos_score = sum([(parsetree.get_pathos()[0]) for parsetree in trees]) / max(len(trees), 1)
-    negative_sentiment_present = any(parsetree.get_pathos()[1] for parsetree in trees)
+    pathos = [parsetree.get_pathos() for parsetree in trees]
+    pathos_score = sum([result[0] for result in pathos]) / max(len(trees), 1)
+    negative_sentiment_present = any(result[1] for result in pathos)
     return pathos_score, negative_sentiment_present
 
 
@@ -369,14 +370,15 @@ def get_compellingness(text: str) -> tuple[Union[float, int], Union[float, int],
     >>> get_compellingness("Because of the failure of Congress, 76 people lost their lives.")
     (2.0, 1.0, 1.5, True)
     """
-    pathos_score = get_pathos(text)[0]
+    pathos = get_pathos(text)
+    pathos_score = pathos[1]
     logos_score = get_logos(text)
     initial_compellingness = max(logos_score, pathos_score) + 0.5 * min(logos_score, pathos_score)
     if initial_compellingness > 2.0:
         compellingness = 2.0
     else:
         compellingness = initial_compellingness
-    return compellingness, pathos_score, logos_score, get_pathos(text)[1]
+    return compellingness, pathos_score, logos_score, pathos[1]
 
 
 def get_compellingness_ai(text: str) -> tuple[Union[float, int], Union[float, int], Union[float, int], bool]:
